@@ -1,0 +1,17 @@
+{
+  "name": "casa-do-codigo",
+  "version": "1.0.0",
+  "description": "Site da Casa do Codigo",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Tadashi",
+  "license": "ISC",
+  "dependencies": {
+    "ejs": "^2.6.1",
+    "express": "^4.16.3",
+    "express-load": "^1.1.16",
+    "mysql": "^2.15.0"
+  }
+}
