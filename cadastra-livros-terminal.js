@@ -19,7 +19,7 @@ var client = http.request(config, function(response){
 });
 
 var produto = {
-  titulo: "Node.js The Revoluction",
+  titulo: "",
   descricao: "One more test",
   preco: 10000
 };
