@@ -1,10 +1,12 @@
 module.exports = function(app){
 
-  var listaProdutos = function(request, response){
+  var listaProdutos = function(request, response, next){
     var connection = app.infra.connectionFactory();
     var produtosDAO = new app.infra.ProdutosDAO(connection);
-    console.log("Listando...");
     produtosDAO.lista(function(error, results){
+      if(error){
+        return next(error);
+      }
       response.format({
         html: function(){
           response.render("produtos/lista", {lista:results});
@@ -48,7 +50,6 @@ module.exports = function(app){
     var connection = app.infra.connectionFactory();
     var produtosDAO = new app.infra.ProdutosDAO(connection);
     produtosDAO.salva(produto, function(error, results){
-      console.log(error);
       response.redirect("/produtos");
     });
     connection.end();

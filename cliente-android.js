@@ -6,7 +6,7 @@ var config = {
   path: "/produtos",
   method: "get",
   headers: {
-    "Accept":"text/html"
+    "Accept":"application/json"
   }
 };
 
