@@ -13,8 +13,23 @@ module.exports = function(){
   app.use(bodyParser.json());
   app.use(expressValidator());
 
+
+
   load("routes", {cwd: "app"})
     .then("infra")
     .into(app);
+
+    app.use(function(request, response, next){
+      response.status(404).render("erros/404");
+      next();
+    });
+
+    app.use(function(error, request, response, next){
+      if(process.env.NODE_ENV == "production"){
+        response.status(500).render("erros/500");
+        return;
+      }
+      next(error);
+    });
   return app;
 }
