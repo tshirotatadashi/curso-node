@@ -28,7 +28,7 @@ module.exports = function(app){
 
 
   app.post("/produtos", function(request, response){
-
+    console.log(request.body);
     var produto = request.body;
 
     request.assert("titulo", "Título é obrigatório").notEmpty();//Estou definindo que não pode ser vazio
